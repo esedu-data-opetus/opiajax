@@ -29,7 +29,7 @@ function loadDoc() {
       var index = Math.floor(Math.random() * artists.length);
       console.log(index);
       txt = txt + artists[index] + "<br>";
-      //artists.splice(index,1); // elementti pitää poistaa, jotta sitä ei näytetä kahteen kertaan
+      artists.splice(index,1); // elementti pitää poistaa, jotta sitä ei näytetä kahteen kertaan
     }
     document.getElementById("demo").innerHTML = txt;
     }

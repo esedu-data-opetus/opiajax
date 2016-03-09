@@ -31,6 +31,7 @@ function doThings() {
     }
     else if (xhttp.readyState == 4 && xhttp.status == 200) {
       p.innerHTML = "readyState = " + xhttp.readyState + " request finished!!";
+      alert(xhttp.responseText);
     }
   };
   xhttp.open("GET", "doBigThings.php", true);

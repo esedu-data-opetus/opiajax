@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Ajax-jQuery-php -demo</title>
+  <script src="./jquery-2.2.1.min.js"></script>
+</head>
+<body>
+
+<h2>Ajax questbook</h2>
+<input type="text" id="nimi" placeholder="nimesi" />
+<input type="text" id="kommentti" placeholder="kommentti" />
+<button type="button" id="btnSend">Lähetä viesti</button>
+
+<p id="demo"></p>
+
+<script>
+$(document).ready(function(){
+  $('#btnSend').click(function() {
+    var nimi = document.getElementById("nimi").value;
+    var kommentti = document.getElementById("kommentti").value;
+    $.post('writeStuffToFile.php', { nimi: nimi, kommentti: kommentti })
+      .done(function( data ){
+        $('#demo').html(data);
+      })
+      .fail( function() {
+        alert('Tapahtui joku virhe!');
+      } );
+  });
+});
+
+</script>
+
+</body>
+</html>
