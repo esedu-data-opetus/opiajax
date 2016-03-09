@@ -1,0 +1,2 @@
+Tämä teksti ladataan Ajaxin avulla, eli XMLHttpRequest -objektin avulla.
+Sivua ei tarvitse ladata kokonaan uudelleen vaan pyyntö käynnistetään javascriptillä.

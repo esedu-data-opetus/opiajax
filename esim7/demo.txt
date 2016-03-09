@@ -1,0 +1,1 @@
+Ajaxin käyttäminen jQueryn avulla on naurettavan helppoa. Lisäksi vältyt monilta ongelmilta, joita selainten erot aiheuttavat.

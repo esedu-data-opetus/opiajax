@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>1st Ajax Example</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+
+<h2>Ajax rules the world wide web!</h2>
+
+<button type="button" onclick="loadDoc('someContent.txt')">Anna tietoa Ajaxista</button>
+<button type="button" onclick="loadDoc('catInfo.txt')">Anna tietoa kissoista</button>
+<button type="button" onclick="loadDoc('default.txt')">Heitä jotain</button>
+
+<div id="content"></div>
+
+
+<script>
+function loadDoc(fileToLoad) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("content").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", fileToLoad, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTCollectionYPE html>
+<html>
+<head>
+  <title>XMLHttpRequest states demo</title>
+</head>
+<body>
+
+<h2>XMLHttpRequest states demo</h2>
+
+<button type="button" onclick="doThings()">Start 5sec request</button>
+
+<p id="demo"></p>
+
+<script>
+function doThings() {
+  var xhttp;
+  var p = document.getElementById("demo");
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 0) {
+      p.innerHTML = "readyState = " + xhttp.readyState + " Request not initialized!";
+    }
+    else if (xhttp.readyState == 1) {
+      p.innerHTML = "readyState = " + xhttp.readyState + " Server connection established!";
+    }
+    else if (xhttp.readyState == 2) {
+      p.innerHTML = "readyState = " + xhttp.readyState + " Request recieved!";
+    }
+    else if (xhttp.readyState == 3) {
+      p.innerHTML = "readyState = " + xhttp.readyState + " Processing request!";
+    }
+    else if (xhttp.readyState == 4 && xhttp.status == 200) {
+      p.innerHTML = "readyState = " + xhttp.readyState + " request finished!!";
+    }
+  };
+  xhttp.open("GET", "doBigThings.php", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

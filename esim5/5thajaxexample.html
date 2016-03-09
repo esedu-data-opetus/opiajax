@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>XMLHttpRequest states demo</title>
+</head>
+<body>
+
+<h2>Ajax questbook</h2>
+<input type="text" id="nimi" placeholder="nimesi" />
+<input type="text" id="kommentti" placeholder="kommentti" />
+<button type="button" onclick="doThings()">Start 5sec request</button>
+
+<p id="demo"></p>
+
+<script>
+function doThings() {
+  var xhttp;
+  var p = document.getElementById("demo");
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      p.innerHTML = xhttp.responseText;
+    }
+  };
+  var nimi = document.getElementById("nimi").value;
+  var kommentti = document.getElementById("kommentti").value;
+  var postData = "nimi=" + nimi + "&kommentti=" + kommentti;
+  xhttp.open("POST", "writeStuffToFile.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(postData);
+}
+</script>
+
+</body>
+</html>

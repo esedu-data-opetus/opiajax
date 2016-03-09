@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2nd Ajax Example</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+
+<h2>Ajax rules the world wide web!</h2>
+
+<input type="text" id="nimi" placeholder="annan nimi" /><button  onclick="sendName()">Aseta Nimi</button>
+
+<div id="content"></div>
+
+
+<script>
+function sendName() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("content").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", 'doit.php?nimi=' + document.getElementById('nimi').value, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
